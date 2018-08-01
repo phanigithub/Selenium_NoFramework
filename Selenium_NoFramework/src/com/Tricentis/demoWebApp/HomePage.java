@@ -81,7 +81,7 @@ public class HomePage {
 //	private <T> getElement(By element) {
 //		return driver.findElements(element);
 //	}
-	public void validate_Register(String expected) {
+	public DemoWebApp validate_Register(String expected) {
 		// TODO Auto-generated method stub
 		String msgToValidate = ((WebElement) driver.findElement(msg_result)).getText();
 		System.out.println(msgToValidate);
@@ -93,7 +93,11 @@ public class HomePage {
 		else {
 			System.err.println("****** Values Not Matched !!! *********");
 		}
+		return new DemoWebApp(driver);
 	}
+	
+	
+	
 	
 	
 

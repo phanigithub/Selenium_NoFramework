@@ -13,7 +13,10 @@ public class DriverScript {
 		HomePage home_page = new HomePage(driver);
 		home_page.launchApp("CHROME");
 		home_page.register();
-		home_page.validate_Register("Your registration completed");
+		
+		@SuppressWarnings("unused")
+		DemoWebApp DWAPage = home_page.validate_Register("Your registration completed");
+		DWAPage.viewaccountDetails();
 		
 		
 	}
