@@ -9,6 +9,7 @@ public class DemoWebApp {
 	
 	By lnk_account = By.className("account");
 	By btn_Address = By.linkText("Addresses");
+	By lnk_wishList = By.className("ico-wishlist");
 	
 	public DemoWebApp(WebDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -24,5 +25,10 @@ public class DemoWebApp {
 	protected Address addAddress() {
 		driver.findElement(btn_Address).click();
 		return new Address(driver);
+	}
+	
+	protected void getCheckout() {
+		System.out.println("Check out Not Implimented");
+		driver.findElement(lnk_wishList).click();
 	}
 }

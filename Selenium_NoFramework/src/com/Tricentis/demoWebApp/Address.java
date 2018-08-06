@@ -1,9 +1,13 @@
 package com.Tricentis.demoWebApp;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Address {
 
@@ -23,6 +27,7 @@ public class Address {
 	By txt_PhoneNumber = By.id("Address_PhoneNumber");
 	By txt_Fax = By.id("Address_FaxNumber");
 	By lnk_account = By.className("account");
+	By btn_Save = By.className("save-address-button");
 	
  
 
@@ -41,15 +46,23 @@ public class Address {
 		 driver.findElement(txt_eMail).sendKeys(driver.findElement(lnk_account).getText());
 		 driver.findElement(txt_Company).sendKeys("KRK Schools");
 		 Select selCountry = new Select(driver.findElement(lst_Country));
-		 selCountry.selectByIndex(5);
-		 Select selCity = new Select(driver.findElement(txt_city));
-		 selCity.selectByIndex(5);
+		 selCountry.selectByIndex(1);
 		 
+		 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		 WebDriverWait wdwait = new WebDriverWait(driver, 10);
+		 
+		 wdwait.until(ExpectedConditions.presenceOfNestedElementsLocatedBy(lst_State, By.tagName("option")));
+		 
+		 Select selstate = new Select(driver.findElement(lst_State));
+		 selstate.selectByVisibleText("Guam");
+		 
+		 driver.findElement(txt_city).sendKeys("sw.Glos");
 		 driver.findElement(lst_address1).sendKeys("KRK Schools Road");
 		 driver.findElement(lst_address2).sendKeys("KRK  Township");
 		 driver.findElement(txt_postalCode).sendKeys("999999");
 		 driver.findElement(txt_PhoneNumber).sendKeys("999999");
 		 driver.findElement(txt_Fax).sendKeys("999999");
+		 driver.findElement(btn_Save).click();
 		 
 		 		
 		

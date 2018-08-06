@@ -18,7 +18,10 @@ public class DriverScript {
 		DemoWebApp DWAPage = home_page.validate_Register("Your registration completed");
 		DWAPage.viewaccountDetails();
 		
-		
+		Address addresss = DWAPage.addAddress();
+		addresss.addNewAddress();
+		addresss.addNewAddress();
+		DWAPage.getCheckout();
 	}
 
 }
