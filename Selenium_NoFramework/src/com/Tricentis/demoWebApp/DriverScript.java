@@ -22,6 +22,15 @@ public class DriverScript {
 		addresss.addNewAddress();
 		addresss.addNewAddress();
 		DWAPage.getCheckout();
+		home_page.NavigatePage("ELECTRONICS>Camera, photo");
+		home_page.PrintItemsList();
+		home_page.viewItem("Camcorder");
+		
+		home_page.captureScreen("Z1");
+		
+	//	ExcelUtil.createExcel("TestExcel",true);
+		
+		
 	}
 
 }
